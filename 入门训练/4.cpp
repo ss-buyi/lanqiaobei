@@ -25,15 +25,24 @@
 //代码
 #include<iostream>
 using namespace std;
+
+long long int arr[1000001];
+
 int main(int argc, char const *argv[])
 {
-	int a, arr[1000001];
+	long long int a;
 	cin >> a;
 	arr[0] = arr[1] = 1;
-	for(int i = 2; i < a; i++)
+	if(a > 2)
 	{
-		arr[i] = arr[i - 1] + arr[i - 2];
+		for(long long int i = 2; i < a; i++)
+		{
+			arr[i] = ( arr[i - 1] + arr[i - 2]) % 10007;
+		}
+		cout << (arr[a - 1]);
+		return 0;
 	}
-	cout << arr[a];
+	else
+		cout << '1';
 	return 0;
 }
